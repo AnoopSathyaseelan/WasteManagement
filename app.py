@@ -46,8 +46,8 @@ class Complain(db.Model):
     
 
 
-    def __init__(self,userid,mob_no,landmark,pincode,Complaint,photo,dateposted,tycomp):
-        self.userid=userid
+    def __init__(self,mob_no,landmark,pincode,Complaint,photo,dateposted,tycomp):
+        
         self.mob_no=mob_no
         self.landmark=landmark
         self.pincode=pincode
@@ -57,7 +57,7 @@ class Complain(db.Model):
         self.tycomp=tycomp
 
     def __repr__(self):
-        return f"Complain('{ self.userid}','{self.mob_no}','{self.landmark}','{self.pincode}','{self.Complaint}','{self.photo}','{self.dateposted}','{self.tycomp}'')"    
+        return f"Complain('{self.mob_no}','{self.landmark}','{self.pincode}','{self.Complaint}','{self.photo}','{self.dateposted}','{self.tycomp}'')"    
 
 
 
@@ -81,7 +81,7 @@ class admin(db.Model):
 class Solved(db.Model):
     __tablename__ = 'Solved'
     id = db.Column(db.Integer, primary_key=True)
-    userid= db.Column(db.Integer,db.ForeignKey('Users.id'), nullable=False)
+    userid= db.Column(db.Integer,db.ForeignKey('User.id'), nullable=False)
     mob_no=db.Column(db.Integer,nullable=False)
     landmark=db.Column(db.String(200),nullable=False)
     pincode=db.Column(db.Integer,nullable=False)
